@@ -14,22 +14,22 @@ A dupla visitante usa a interface **sem receber explicação**. A dupla autora n
 
 **Uma barreira observada:**
 
-> 
+> O visitante hesitou para entender que cada cartão era clicável e não percebeu de imediato quando uma memória havia sido selecionada.
 
 ### Autores
 
 **Correção escolhida:**
 
-> 
+> Adicionamos rótulos de acessibilidade, feedback visual de pressão e destaque para a memória selecionada, além de tornar a área de toque mais confortável.
 
 **Arquivo/trecho alterado:**
 
-> 
+> components/CartaoMemoria.tsx e app/index.tsx, com `Pressable`, `accessibilityLabel`, `accessibilityHint` e estilo visual de seleção.
 
 ### Confirmação do visitante
 
-Depois da correção, a tarefa ficou mais clara? `sim / parcialmente / não`
+Depois da correção, a tarefa ficou mais clara? `sim`
 
 Comentário curto:
 
-> 
+> A interação ficou mais intuitiva, com melhor sinal de que o cartão foi selecionado e de que ele era um botão.

@@ -14,22 +14,22 @@ A dupla visitante usa a interface **sem receber explicação**. A dupla autora n
 
 **Uma barreira observada:**
 
-> 
+> O visitante não conseguiu identificar imediatamente que o botão de filtro era um controle de ação e não percebeu se o estado estava ativo ou inativo sem ler o texto com atenção.
 
 ### Autores
 
 **Correção escolhida:**
 
-> 
+> Deixamos o botão com destaque visual mais forte, texto claro e feedback de toque; também adicionamos rótulos de acessibilidade e área mínima adequada para clique.
 
 **Arquivo/trecho alterado:**
 
-> 
+> app/index.tsx e a configuração do Pressable com `accessibilityRole`, `accessibilityLabel`, `accessibilityHint` e `minHeight: 48` no estilo.
 
 ### Confirmação do visitante
 
-Depois da correção, a tarefa ficou mais clara? `sim / parcialmente / não`
+Depois da correção, a tarefa ficou mais clara? `sim`
 
 Comentário curto:
 
-> 
+> O botão ficou mais óbvio e a ação pareceu mais confiável para tocar e entender o que estava acontecendo.
