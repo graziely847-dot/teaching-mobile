@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
+import { Image, Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { CartaoIndicador } from "../components/CartaoIndicador";
 import { INDICADORES } from "../src/dominio";
@@ -20,10 +20,24 @@ export default function Index() {
         <Text style={styles.introducao}>Indicadores simulados de permanência estudantil.</Text>
         <Text style={styles.aviso}>DADOS FICTÍCIOS E AGREGADOS · Não representam uma turma real.</Text>
 
+        <Image
+          source={require("../assets/images/painel-didatico.png")}
+          style={styles.imagemPainel}
+          resizeMode="cover"
+          accessibilityIgnoresInvertColors
+        />
+
         <View style={styles.controles}>
           <Pressable
+            accessibilityRole="button"
+            accessibilityLabel={somenteAtencao ? "Mostrar todos os indicadores" : "Filtrar indicadores por atenção"}
+            accessibilityHint="Alterna entre ver todos os indicadores ou apenas os que precisam de atenção"
             onPress={alternarFiltro}
-            style={[styles.botao, somenteAtencao && styles.botaoAtivo]}
+            style={({ pressed }) => [
+              styles.botao,
+              somenteAtencao && styles.botaoAtivo,
+              pressed && styles.botaoPressionado,
+            ]}
           >
             <Text style={[styles.textoBotao, somenteAtencao && styles.textoBotaoAtivo]}>
               {somenteAtencao ? "Mostrar todos" : "Somente atenção"}
@@ -49,9 +63,11 @@ const styles = StyleSheet.create({
   titulo: { color: "#166534", fontSize: 30, fontWeight: "800", marginTop: 6 },
   introducao: { color: "#334155", fontSize: 16, lineHeight: 23, marginTop: 8 },
   aviso: { color: "#64748B", fontSize: 12, lineHeight: 18, marginTop: 8 },
+  imagemPainel: { width: "100%", height: 160, borderRadius: 16, marginTop: 18, marginBottom: 8 },
   controles: { alignItems: "center", flexDirection: "row", justifyContent: "space-between", marginTop: 20 },
-  botao: { backgroundColor: "#FFFFFF", borderColor: "#166534", borderRadius: 999, borderWidth: 2, paddingHorizontal: 16, paddingVertical: 10 },
+  botao: { alignItems: "center", backgroundColor: "#FFFFFF", borderColor: "#166534", borderRadius: 999, borderWidth: 2, justifyContent: "center", minHeight: 48, paddingHorizontal: 16, paddingVertical: 10 },
   botaoAtivo: { backgroundColor: "#166534" },
+  botaoPressionado: { opacity: 0.88 },
   textoBotao: { color: "#166534", fontSize: 14, fontWeight: "700" },
   textoBotaoAtivo: { color: "#FFFFFF" },
   contagem: { color: "#64748B", fontSize: 14 },

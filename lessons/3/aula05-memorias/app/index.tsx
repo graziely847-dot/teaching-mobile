@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ScrollView, StyleSheet, Text, View } from "react-native";
+import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { CartaoMemoria } from "../components/CartaoMemoria";
 import { MEMORIAS } from "../src/dominio";
@@ -18,6 +18,13 @@ export default function Index() {
         <Text style={styles.marca}>IFMA · PROTÓTIPO DIDÁTICO</Text>
         <Text style={styles.titulo}>Memórias Quilombolas</Text>
         <Text style={styles.introducao}>Selecione um registro fictício para visualizar seus detalhes.</Text>
+
+        <Image
+          source={require("../assets/images/arquivo-didatico.png")}
+          style={styles.imagemPainel}
+          resizeMode="cover"
+          accessibilityIgnoresInvertColors
+        />
 
         <View style={styles.lista}>
           {MEMORIAS.map((memoria) => (
@@ -52,6 +59,7 @@ const styles = StyleSheet.create({
   marca: { color: "#B91C1C", fontSize: 12, fontWeight: "700" },
   titulo: { color: "#166534", fontSize: 30, fontWeight: "800", marginTop: 6 },
   introducao: { color: "#334155", fontSize: 16, lineHeight: 23, marginTop: 8 },
+  imagemPainel: { width: "100%", height: 160, borderRadius: 16, marginTop: 18, marginBottom: 8 },
   lista: { marginTop: 20 },
   detalhes: { backgroundColor: "#166534", borderRadius: 12, marginTop: 8, padding: 18 },
   rotulo: { color: "#DCFCE7", fontSize: 12, fontWeight: "700" },

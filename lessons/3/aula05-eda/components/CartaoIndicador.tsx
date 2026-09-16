@@ -9,7 +9,7 @@ type CartaoIndicadorProps = { indicador: IndicadorEDA };
 export function CartaoIndicador({ indicador }: CartaoIndicadorProps) {
   const emAtencao = indicador.situacao === "atencao";
   return (
-    <View style={[styles.cartao, emAtencao && styles.cartaoAtencao]}>
+    <View style={[styles.cartao, emAtencao && styles.cartaoAtencao]} accessibilityRole="text">
       <View style={styles.linhaTitulo}>
         <Text style={styles.titulo}>{indicador.titulo}</Text>
         <Text style={[styles.situacao, emAtencao && styles.situacaoAtencao]}>
